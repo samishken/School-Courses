@@ -9,3 +9,4 @@ Courses.remove({})
   })
   .then(() => {
     process.exit()
+  }) 

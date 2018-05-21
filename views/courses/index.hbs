@@ -1,1 +1,15 @@
-<h3>Index under view/courses</h3>
+<h1>Look at the following courses</h1>  
+<section class="Navbar">
+<h5><a href="/">Go Home</a> <a href="/new">Add New Course</a> <a href="/edit">Edit Courses</a></h5>
+</section>
+
+  <section class="course_list">
+  {{#each courses}}
+  <a href="/courses/{{id}}" class="course-list-details">
+    <div class="course-content">
+          <p>Course Name {{this.Course}} Instructor Name {{this.Instructor}}</p><style> .course-content {text-decoration: none;}</style>
+    </div>
+  </a>
+  {{/each}}
+
+</section>

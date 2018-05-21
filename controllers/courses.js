@@ -1,16 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const newMessages = require('../models/Courses')
+const newCourses = require('../models/Courses')
 
 router.get('/', (req, res) => {
-  newMessages.find({}).then(function (messages) {
-    res.render('messages/index', { messages })
+  newCourses.find({}).then(function (courses) {
+    res.render('courses/index', { courses })
   })
 })
-
-router.get('/new', (req, res) => {
-    res.render('messages/new')
-  })
 
 module.exports = router
