@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-
 const newCourses = require('../models/Courses')
 
 router.get('/', (req, res) => {
@@ -37,10 +36,25 @@ router.get('/:id', (req, res) => {
 // edit
 router.get('/edit/:id', (req, res) => {
   newCourses.findOne({ _id: req.params.id })
-    .then(courses => {
-        res.render('newCourses/edit', courses)
-    })
-      .catch(err => console.log(err))
-});
+  .then(course => {
+    res.render('courses/edit', course)
+  })
+})
+
+
+//delete
+// router.delete('/edit/:id', (req, res) => {
+//   newCourses.findOneAndRemove({ _id: req.params.id })
+//   .then(courses => {
+//     res.redirect('/courses/index')
+//   })
+// })
+
+router.delete("/:id", (req, res) => {
+  newCourses.findOneAndRemove({ _id: req.params.id })
+  .then(() => {
+    res.redirect("/courses")
+  })
+})
 
 module.exports = router

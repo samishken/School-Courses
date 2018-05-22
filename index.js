@@ -8,6 +8,8 @@ const bodyParser = require('body-parser')
 const newCourses = require('./models/Courses')
 
 app.set('view engine', 'hbs')
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
   newCourses.find({}).then(function (courses) {
