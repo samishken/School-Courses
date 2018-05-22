@@ -9,4 +9,38 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/new', (req, res) => {
+  res.render('courses/new')
+})
+
+// new post add to inventory and
+router.post('/', (req, res) => {
+  newCourses.create({
+    Course: req.body.course,
+    Instructor: req.body.instructor
+  }).then(courses => {
+    res.redirect('/courses')
+  })
+    .catch(err => console.log('it\'s not adding the new inventory'))
+})
+
+
+//show details
+router.get('/:id', (req, res) => {
+  newCourses.findOne({ _id: req.params.id })
+    .then(courses => {
+      res.render('courses/show', courses)
+    })
+    .catch(err => console.log('oh oh problem with showing details'))
+})
+
+// edit
+router.get('/edit/:id', (req, res) => {
+  newCourses.findOne({ _id: req.params.id })
+    .then(courses => {
+        res.render('newCourses/edit', courses)
+    })
+      .catch(err => console.log(err))
+});
+
 module.exports = router

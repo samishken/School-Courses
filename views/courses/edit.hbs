@@ -1,0 +1,13 @@
+ <div class="edit-details">
+ <h3>Update Course Information</h3>
+    <form action="/courses/{{this.id}}?_method=put" method="post">
+        <div class="form-group">
+            <label for="title">Course</label>
+            <input type="text" value="{{this.Course}}" name="Course" required>
+          
+            <label for="title">Instructor</label>
+            <input type="text" value="{{this.Instructor}}" name="Instructor" required>
+        </div>
+        <input type ="submit" value= "Update">
+    </form>
+    </div>

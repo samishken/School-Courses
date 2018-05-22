@@ -4,12 +4,16 @@ const express = require('express')
 const app = express()
 const hbs = require('hbs')
 const coursesController = require('./controllers/courses')
-//const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
+const newCourses = require('./models/Courses')
 
 app.set('view engine', 'hbs')
 
-
-
+app.get('/', (req, res) => {
+  newCourses.find({}).then(function (courses) {
+    res.render('index', { courses })
+  })
+})
 
 // define a route
 // app.get('/', (req, res) => {

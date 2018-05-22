@@ -1,0 +1,23 @@
+<section class="show">
+    <div class="show-details">
+        <div class="course-detail">
+           <p>{{Course}}</p>
+        </div>
+        <div class="Insturcto-detail">
+            <p>{{ Instructor }}</p>
+        </div>
+    </div>
+</section>
+
+<div class="edit-button">
+  <form action="/course/edit/{{this.id}}?_method=delete" method="edit">
+    <input class="button1" type="submit" value="Edit">
+  </form> 
+</div>
+<div class="delete-button2">
+  <form action="/course/edit/{{this.id}}?_method=delete" method="post">
+    <input class="button2" type="submit" value="Delete">
+  </form> 
+
+  <a href="/">Go Home</a>
+</div>
